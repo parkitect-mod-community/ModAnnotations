@@ -80,4 +80,4 @@ jobs:
     - name: Publish NuGet
       run: |
         nuget pack
-        nuget push *.nupkg -ApiKey ${{secrets.NUGET_API_KEY}}
+        nuget push *.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
