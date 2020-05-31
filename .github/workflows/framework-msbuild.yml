@@ -74,9 +74,10 @@ jobs:
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild PMC.Mod.csproj /t:Restore /p:Configuration=Debug
+      run: msbuild PMC.Mod.csproj /t:Build /p:Configuration=Debug
+
     
     - name: Publish NuGet
       run: |
         nuget pack
-        nuget push *.nupkg ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
+        nuget push PMC.Mod ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
