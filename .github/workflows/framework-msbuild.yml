@@ -77,3 +77,5 @@ jobs:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: PMC.Mod.csproj
         NUGET_KEY:  ${{secrets.NUGET_API_KEY}}
+        VERSION_FILE_PATH: ./Properties/AssemblyInfo.cs
+        VERSION_REGEX: AssemblyVersion\(\"(.*)\"\)
