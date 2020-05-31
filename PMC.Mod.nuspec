@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>PMC.Mod</id>
+    <version>1.0.0</version>
+    <title>PMC.Mod</title>
+    <authors>Michael Pollind</authors>
+    <owners>Michael Pollind</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/parkitect-mod-community/PMC.Mod</projectUrl>
+    <iconUrl>https://www.nuget.org/Content/gallery/img/default-package-icon.svg</iconUrl>
+    <description>Parkitect mod featuers and annotations</description>
+    <releaseNotes>Initial.</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>Parkitect</tags>
+  </metadata>
+</package>

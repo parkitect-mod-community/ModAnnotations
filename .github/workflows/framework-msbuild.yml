@@ -67,15 +67,16 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
 
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1.0.2
+      with:
+        nuget-api-key: ${{secrets.NUGET_API_KEY}}
+
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
       run: msbuild PMC.Mod.csproj /t:Restore /p:Configuration=Release
-      
+    
     - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.0
-      with:
-        # Filepath of the project to be packaged, relative to root of repository
-        PROJECT_FILE_PATH: PMC.Mod.csproj
-        NUGET_KEY:  ${{secrets.NUGET_API_KEY}}
-        VERSION_FILE_PATH: ./Properties/AssemblyInfo.cs
-        VERSION_REGEX: AssemblyVersion\(\"(.*)\"\)
+      run: |
+        nuget pack
+        nuget push PMC.Mod ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
